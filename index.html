@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>275 Lalley Blvd — Fairfield, CT</title>
+<meta name="description" content="Beautifully designed 4-bed, 3.5-bath colonial in Fairfield's beach neighborhood. Two blocks from Penfield Beach. Available for yearly lease furnished or unfurnished." />
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --rule: #e5e0d8;
+    --bg: #fafaf7;
+    --accent: #2c4a5c;
+    --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { opacity: 0.7; }
+
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 250, 247, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .brand {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+  nav ul a {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 720px) {
+    nav { padding: 14px 20px; }
+    nav ul { display: none; }
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    height: 85vh;
+    min-height: 540px;
+    overflow: hidden;
+  }
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 48px 32px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    color: white;
+  }
+  .hero-text h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .hero-text p {
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    letter-spacing: 0.05em;
+    opacity: 0.95;
+  }
+
+  /* Sections */
+  section { padding: 88px 32px; max-width: 1400px; margin: 0 auto; }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
+  }
+  .section-eyebrow {
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto 56px;
+  }
+
+  /* Listing details */
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 56px auto;
+    max-width: 900px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .detail {
+    text-align: center;
+    padding: 28px 12px;
+    border-right: 1px solid var(--rule);
+  }
+  .detail:last-child { border-right: none; }
+  .detail .num {
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .detail .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+  @media (max-width: 720px) {
+    .details-grid { grid-template-columns: repeat(2, 1fr); }
+    .detail:nth-child(2) { border-right: none; }
+    .detail:nth-child(1), .detail:nth-child(2) { border-bottom: 1px solid var(--rule); }
+  }
+
+  .description {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.85;
+  }
+  .description p { margin-bottom: 1.25em; }
+  .description p:last-child { margin-bottom: 0; }
+
+  .price-tag {
+    text-align: center;
+    margin: 40px auto 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    max-width: 760px;
+  }
+  .price-tag .price {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    color: var(--ink);
+  }
+  .price-tag .terms {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-top: 4px;
+  }
+
+  /* Photo galleries */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .gallery .item {
+    overflow: hidden;
+    cursor: pointer;
+    background: #eee;
+    aspect-ratio: 4 / 3;
+  }
+  .gallery .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .gallery .item:hover img { transform: scale(1.04); }
+  .gallery .item.wide { grid-column: span 2; aspect-ratio: 8 / 3; }
+  @media (max-width: 900px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .gallery .item.wide { grid-column: span 2; aspect-ratio: 16 / 9; }
+  }
+  @media (max-width: 540px) {
+    .gallery { grid-template-columns: 1fr; gap: 12px; }
+    .gallery .item.wide { grid-column: span 1; }
+  }
+
+  /* Floor plans */
+  .floorplans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .floorplan {
+    background: white;
+    padding: 24px;
+    border: 1px solid var(--rule);
+  }
+  .floorplan h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.15rem;
+    text-align: center;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+  .floorplan img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+  @media (max-width: 900px) {
+    .floorplans { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .floorplan { padding: 16px; }
+  }
+  @media (max-width: 540px) {
+    .floorplans { grid-template-columns: 1fr; }
+  }
+
+  /* Contact */
+  .contact {
+    background: var(--ink);
+    color: white;
+    margin-top: 0;
+    max-width: none;
+    padding: 96px 32px;
+    text-align: center;
+  }
+  .contact .section-title { color: white; }
+  .contact .section-eyebrow { color: #c5b89d; }
+  .contact .section-rule { background: #c5b89d; }
+  .contact .lead {
+    max-width: 580px;
+    margin: 0 auto 40px;
+    color: #d0cfcc;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .contact-card {
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    padding: 40px 32px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .contact-card .agent-name {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+  .contact-card .agent-title {
+    font-size: 0.85rem;
+    color: #c5b89d;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn {
+    display: block;
+    padding: 16px 24px;
+    border: 1px solid #c5b89d;
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  .btn:hover {
+    background: #c5b89d;
+    color: var(--ink);
+    opacity: 1;
+  }
+  .btn-primary {
+    background: #c5b89d;
+    color: var(--ink);
+  }
+  .btn-primary:hover {
+    background: white;
+    border-color: white;
+  }
+
+  /* Footer */
+  footer {
+    padding: 32px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    cursor: pointer;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .lightbox .close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+  }
+  .lightbox .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 16px;
+    line-height: 1;
+    user-select: none;
+  }
+  .lightbox .prev { left: 16px; }
+  .lightbox .next { right: 16px; }
+  .lightbox .counter {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">275 Lalley Blvd</div>
+  <ul>
+    <li><a href="#details">Details</a></li>
+    <li><a href="#exterior">Exterior</a></li>
+    <li><a href="#interior">Interior</a></li>
+    <li><a href="#floorplans">Floor Plans</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <img src="hero.jpg" alt="275 Lalley Blvd, Fairfield CT — front exterior" />
+  <div class="hero-text">
+    <h1>275 Lalley Blvd</h1>
+    <p>Fairfield, CT 06824 — Beach Neighborhood</p>
+  </div>
+</header>
+
+<section id="details">
+  <div class="section-eyebrow">The Property</div>
+  <h2 class="section-title">A Designer Colonial, Two Blocks from the Beach</h2>
+  <div class="section-rule"></div>
+
+  <div class="details-grid">
+    <div class="detail">
+      <div class="num">4</div>
+      <div class="label">Bedrooms</div>
+    </div>
+    <div class="detail">
+      <div class="num">3 + 2&frac12;</div>
+      <div class="label">Baths</div>
+    </div>
+    <div class="detail">
+      <div class="num">3,226</div>
+      <div class="label">Sq Ft</div>
+    </div>
+    <div class="detail">
+      <div class="num">9/8/26</div>
+      <div class="label">Available</div>
+    </div>
+  </div>
+
+  <div class="description">
+    <p>Enjoy this beautifully designed colonial on one of the most desirable streets in Fairfield's beach neighborhood — just two blocks from Penfield Beach, and a 10-minute stroll to town filled with great restaurants and the train to NYC. Unique personality flows throughout the home.</p>
+
+    <p>The first floor has a chef's kitchen with an island for everyone to gather; an oversized family room with double french doors that open to the fenced-in backyard; a large dining room that can sit up to 8; plus a half bath.</p>
+
+    <p>The second floor boasts a tranquil primary suite that overlooks the sunny yard, along with a spacious en-suite bath and steam shower. Two additional bedrooms, a full bath with tub, and a spacious laundry room complete the second floor.</p>
+
+    <p>A window-lined staircase leads to the third floor with a large bonus room, fourth bedroom, and beautiful marble full bathroom. Enjoy warm days on a spacious deck facing the heated saltwater pool. A separate pool house with powder room completes this backyard oasis.</p>
+  </div>
+
+  <div class="price-tag">
+    <div class="price">$18,000<span style="font-size: 1.25rem; color: var(--ink-soft);">/month</span></div>
+    <div class="terms">Yearly lease — furnished, unfurnished, or flexible furnished terms</div>
+  </div>
+</section>
+
+<section id="exterior">
+  <div class="section-eyebrow">Outside</div>
+  <h2 class="section-title">Exterior &amp; Grounds</h2>
+  <div class="section-rule"></div>
+
+  <div class="gallery" data-gallery="exterior">
+    <div class="item wide"><img src="exterior-01.jpg" alt="Exterior" loading="lazy" /></div>
+    <div class="item"><img src="exterior-02.jpg" alt="Exterior" loading="lazy" /></div>
+    <div class="item"><img src="exterior-03.jpg" alt="Aerial view" loading="lazy" /></div>
+    <div class="item"><img src="exterior-04.jpg" alt="Aerial view" loading="lazy" /></div>
+    <div class="item"><img src="exterior-05.jpg" alt="Pool" loading="lazy" /></div>
+    <div class="item"><img src="exterior-06.jpg" alt="Backyard" loading="lazy" /></div>
+    <div class="item"><img src="exterior-07.jpg" alt="Backyard with deck" loading="lazy" /></div>
+    <div class="item"><img src="exterior-08.jpg" alt="Yard" loading="lazy" /></div>
+    <div class="item wide"><img src="exterior-09.jpg" alt="Aerial view of beach proximity" loading="lazy" /></div>
+    <div class="item"><img src="exterior-10.jpg" alt="Beach view" loading="lazy" /></div>
+    <div class="item"><img src="exterior-11.jpg" alt="Exterior" loading="lazy" /></div>
+  </div>
+</section>
+
+<section id="interior" style="background: white;">
+  <div class="section-eyebrow">Inside</div>
+  <h2 class="section-title">Interior</h2>
+  <div class="section-rule"></div>
+
+  <div class="gallery" data-gallery="interior">
+    <div class="item wide"><img src="interior-01.jpg" alt="Foyer and dining area" loading="lazy" /></div>
+    <div class="item"><img src="interior-02.jpg" alt="Dining room" loading="lazy" /></div>
+    <div class="item"><img src="interior-03.jpg" alt="Kitchen" loading="lazy" /></div>
+    <div class="item"><img src="interior-04.jpg" alt="Kitchen detail" loading="lazy" /></div>
+    <div class="item"><img src="interior-05.jpg" alt="Living room" loading="lazy" /></div>
+    <div class="item"><img src="interior-06.jpg" alt="Powder room" loading="lazy" /></div>
+    <div class="item"><img src="interior-07.jpg" alt="Mud room" loading="lazy" /></div>
+    <div class="item"><img src="interior-08.jpg" alt="Kitchen island" loading="lazy" /></div>
+    <div class="item"><img src="interior-09.jpg" alt="Bedroom" loading="lazy" /></div>
+    <div class="item"><img src="interior-10.jpg" alt="Laundry room" loading="lazy" /></div>
+    <div class="item"><img src="interior-11.jpg" alt="Full bath" loading="lazy" /></div>
+    <div class="item"><img src="interior-12.jpg" alt="Bedroom" loading="lazy" /></div>
+    <div class="item"><img src="interior-13.jpg" alt="Mirror detail" loading="lazy" /></div>
+    <div class="item"><img src="interior-14.jpg" alt="Primary bath with steam shower" loading="lazy" /></div>
+    <div class="item"><img src="interior-15.jpg" alt="Primary bedroom" loading="lazy" /></div>
+    <div class="item"><img src="interior-16.jpg" alt="Stairwell with chandelier" loading="lazy" /></div>
+    <div class="item"><img src="interior-17.jpg" alt="Third floor bonus room" loading="lazy" /></div>
+    <div class="item"><img src="interior-18.jpg" alt="Third floor landing" loading="lazy" /></div>
+    <div class="item"><img src="interior-19.jpg" alt="Fourth bedroom" loading="lazy" /></div>
+    <div class="item"><img src="interior-20.jpg" alt="Marble bath" loading="lazy" /></div>
+    <div class="item"><img src="interior-21.jpg" alt="Bonus room" loading="lazy" /></div>
+    <div class="item wide"><img src="interior-22.jpg" alt="Pool house gym" loading="lazy" /></div>
+  </div>
+</section>
+
+<section id="floorplans">
+  <div class="section-eyebrow">Layout</div>
+  <h2 class="section-title">Floor Plans</h2>
+  <div class="section-rule"></div>
+
+  <div class="floorplans" data-gallery="floorplan">
+    <div class="floorplan">
+      <h3>First Floor</h3>
+      <img src="floorplan-1-first.jpg" alt="First floor plan" loading="lazy" />
+    </div>
+    <div class="floorplan">
+      <h3>Second Floor</h3>
+      <img src="floorplan-2-second.jpg" alt="Second floor plan" loading="lazy" />
+    </div>
+    <div class="floorplan">
+      <h3>Third Floor</h3>
+      <img src="floorplan-3-third.jpg" alt="Third floor plan" loading="lazy" />
+    </div>
+    <div class="floorplan">
+      <h3>Basement</h3>
+      <img src="floorplan-4-basement.jpg" alt="Basement plan" loading="lazy" />
+    </div>
+    <div class="floorplan">
+      <h3>Pool &amp; Patio</h3>
+      <img src="floorplan-5-pool.jpg" alt="Pool and patio plan" loading="lazy" />
+    </div>
+    <div class="floorplan">
+      <h3>All Levels</h3>
+      <img src="floorplan-6-all.jpg" alt="All floors combined" loading="lazy" />
+    </div>
+  </div>
+  <p style="text-align: center; margin-top: 32px; color: var(--ink-soft); font-size: 0.9rem; font-style: italic;">Total: 3,579 sq ft including all levels. Floor plan measurements deemed reliable but not guaranteed.</p>
+</section>
+
+<section id="contact" class="contact">
+  <div class="section-eyebrow">Get in Touch</div>
+  <h2 class="section-title">Schedule a Showing</h2>
+  <div class="section-rule"></div>
+  <p class="lead">For more information, to request additional photos, or to schedule a private showing, please reach out directly.</p>
+
+  <div class="contact-card">
+    <div class="agent-name">Lauren Reynolds</div>
+    <div class="agent-title">Agent &middot; Compass</div>
+    <div class="contact-buttons">
+      <a href="mailto:lauren.reynolds@compass.com?subject=275%20Lalley%20Blvd%20Inquiry" class="btn btn-primary">Email Lauren</a>
+      <a href="tel:+12037336800" class="btn">Call 203-733-6800</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 &middot; 275 Lalley Blvd, Fairfield, CT &middot; Listed by Lauren Reynolds, Compass</p>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" aria-label="Close">&times;</button>
+  <button class="nav-arrow prev" aria-label="Previous">&#8249;</button>
+  <img src="" alt="" id="lightbox-img" />
+  <button class="nav-arrow next" aria-label="Next">&#8250;</button>
+  <div class="counter" id="lightbox-counter"></div>
+</div>
+
+<script>
+  // Lightbox functionality
+  (function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const counter = document.getElementById('lightbox-counter');
+    let currentGallery = [];
+    let currentIndex = 0;
+
+    function openLightbox(images, index) {
+      currentGallery = images;
+      currentIndex = index;
+      updateImage();
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function updateImage() {
+      lightboxImg.src = currentGallery[currentIndex].src;
+      counter.textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % currentGallery.length;
+      updateImage();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      updateImage();
+    }
+
+    document.querySelectorAll('[data-gallery]').forEach(gallery => {
+      const images = Array.from(gallery.querySelectorAll('img'));
+      images.forEach((img, idx) => {
+        img.parentElement.addEventListener('click', () => openLightbox(images, idx));
+      });
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImg) closeLightbox();
+    });
+    document.querySelector('.lightbox .close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox .next').addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+    document.querySelector('.lightbox .prev').addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowRight') nextImage();
+      else if (e.key === 'ArrowLeft') prevImage();
+    });
+  })();
+</script>
+
+</body>
+</html>
